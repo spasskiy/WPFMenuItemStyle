@@ -1,0 +1,39 @@
+﻿<Window x:Class="WPFMenuItemStyle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFMenuItemStyle"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Menu DockPanel.Dock="Top" VerticalAlignment="Top" Background="{x:Null}">
+            <MenuItem Header="Файл" VerticalAlignment="Center">
+                <MenuItem Header="Новый ввод" Command="{Binding NewMapCommand}">
+                    <MenuItem.Style>
+                        <Style TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}">
+                            <Setter Property="Foreground" Value="Lime"></Setter>
+                        </Style>
+                    </MenuItem.Style>
+                </MenuItem>
+                <MenuItem Header="Загрузить" Command="{Binding LoadMapCommand}"/>
+                <MenuItem Header="Сохранить" Command="{Binding SaveMapcomman}"/>
+                <Separator Style="{DynamicResource MenuSeparatorStyle}"/>
+                <MenuItem Header="Поиск" Command="{Binding SearchAddressCommand}"/>
+                <MenuItem Header="Открыть лог" Command="{Binding OpenLogCommand}"/>
+                <Separator Style="{DynamicResource MenuSeparatorStyle}"/>
+                <MenuItem Header="Выход" Command="{Binding ExitCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Вид" VerticalAlignment="Center">
+                <MenuItem Header="Таблица" Command="{Binding TableCommand}"/>
+                <MenuItem Header="Текст" Command="{Binding TextCommand}"/>
+                <MenuItem Header="Просмотр" Command="{Binding ViewingPackagesCommand}"/>
+                <MenuItem Header="Коэффициенты" IsCheckable="True" Command="{Binding RatioCommand}"/>
+                <MenuItem Header="Формат" IsCheckable="True" Command="{Binding FormatCommand}"/>
+                <MenuItem Header="Цвета" IsCheckable="True" Command="{Binding ColorTypeCommand}"/>
+                <Separator Style="{DynamicResource MenuSeparatorStyle}"/>
+                <MenuItem Header="Сброс" Command="{Binding ResetColCommand}"/>
+            </MenuItem>          
+        </Menu>
+    </Grid>
+</Window>
